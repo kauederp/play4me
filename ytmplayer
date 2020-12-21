@@ -1,0 +1,22 @@
+#!/bin/sh
+
+read name
+mkdir -p /tmp/music
+dir="/tmp/music"
+title=$(date +%Y-%m-%d-%H:%M)
+youtube-dl -o "/tmp/music/${title}.mp3" --extract-audio --audio-format mp3 "ytsearch:$name"
+mplayer /tmp/music/${title}.mp3
+
+echo "do you wanna save?"
+echo "y/n"
+
+read bol
+
+if [ "$bol"="y" ];then
+	mv /tmp/music/${title}.mp3 /home/kaue/Música/downloads/
+	echo "moved"
+elif [ "$bol"="n" ];then
+	rm ${dir}/${title}.mp3
+	echo "removed"
+fi
+exit 0;
