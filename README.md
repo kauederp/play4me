@@ -7,10 +7,10 @@ Simple script to download audio file from youtube video and play with Mplayer.
 - ffmpeg 
 
 Para utilizar basta tornar o scrip executavel com:
-$ chmod +x ytmp3dl.sh
+$ chmod +x ytmplayer
 
 depois executar com:
-$ ./ytmp3dl.sh
+$ ./ytmplayer
 
 e escrever o nome do video.
 
