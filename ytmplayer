@@ -2,6 +2,7 @@
 
 read name
 mkdir -p /tmp/music
+mkdir -p /home/${USER}/Downloads/play4me
 dir="/tmp/music"
 title=$(date +%Y-%m-%d-%H:%M)
 youtube-dl -o "/tmp/music/${title}.mp3" --extract-audio --audio-format mp3 "ytsearch:$name"
@@ -13,7 +14,7 @@ echo "y/n"
 read bol
 
 if [ "$bol"="y" ];then
-	mv /tmp/music/${title}.mp3 /home/kaue/Música/downloads/
+	mv /tmp/music/${title}.mp3 /home/${USER}/Downloads/play4me
 	echo "moved"
 elif [ "$bol"="n" ];then
 	rm ${dir}/${title}.mp3
