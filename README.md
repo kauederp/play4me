@@ -7,9 +7,9 @@ Simple script to download audio file from youtube video and play with Mplayer.
 - ffmpeg
 
 To run from anywhere just run this command at the root
-'# ln -s ./play4me /usr/bin/
+'# ln -s ./play4me /usr/bin/'
 and
-'$ chmod + x ./play4me
+'$ chmod + x ./play4me'
 
 and write the name of the video.
 
