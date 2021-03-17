@@ -1,19 +1,19 @@
-# youtube_mp3_download_script
+# play4me
 Simple script to download audio file from youtube video and play with Mplayer.
 
-#### REQUISITOS ####
+#### REQUIREMENTS ####
 - Mplayer
 - youtube-dl
-- ffmpeg 
+- ffmpeg
 
-Para utilizar basta tornar o scrip executavel com:
-$ chmod +x ytmplayer
+To run from anywhere just run this command at the root
+# ln -s ./play4me /usr/bin/
+and
+$ chmod + x ./play4me
 
-depois executar com:
-$ ./ytmplayer
+and write the name of the video.
 
-e escrever o nome do video.
+after Mplayer closes it will ask if you want to save the audio,
+if yes 'y' it will be moved to the ~Downloads/play4me folder with the name equal to the download date and time.
 
-após o Mplayer fechar perguntará se deseja salvar o áudio, se sim 'y' ele será movido para a pasta Música com o nome igual a data e horário de download.
-
-caso seja 'n' ele será removido e o programa fechado.
+if it is 'n' it will be removed and the program closed.
