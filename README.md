@@ -9,7 +9,7 @@ Simple script to download audio file from youtube video and play with Mplayer.
 To install, run the install.sh script as root
 
 \# chmod +x ./install.sh
-\n
+<br >
 \# ./install.sh
 
 And to run the script run 
