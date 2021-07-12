@@ -1,20 +1,44 @@
 #!/bin/sh
 
+###################################################################
+#Script Name	: play4me                                                                                         
+#Description	: A script that uses third-party programs to download videos 
+#				  from youtube and convert them to audio and play the converted audio                                                                                                                                                                            
+#Author       	: Kauê Delgado Pereira                                                
+#Email         	: kauedelgado@vivaldi.net                                           
+###################################################################
+
+
+# default 
+saveDir="/home/${USER}/Downloads/play4me"
+title=$(date +%Y-%m-%d-%H:%M)
+
+# inline otions
+case  "$1" in
+	"-h"|"--help")
+		printf " -d or --dir\t\t specify download dir\n";
+		printf " -h or --help\t\t this message\n";
+		printf " -n or --name\t\t specify download name\n";
+		exit 0
+	;;
+	"-d"|"--dir")
+		sevedir="${$2}"
+	;;
+	"-n"|"--name")
+		title=$1
+	;;
+esac
 read name
 mkdir -p /tmp/music
 mkdir -p /home/${USER}/Downloads/play4me
 dir="/tmp/music"
-title=$(date +%Y-%m-%d-%H:%M)
-youtube-dl -o "/tmp/music/${title}.mp3" --extract-audio --audio-format mp3 "ytsearch:$name"
+nohup youtube-dl -o "/tmp/music/${title}.mp3" --extract-audio --audio-format mp3 "ytsearch:$name" > /dev/null
 mplayer /tmp/music/${title}.mp3
-
 echo "do you wanna save?"
 echo "y/n"
-
 read bol
-
 if [ "$bol"="y" ];then
-	mv /tmp/music/${title}.mp3 /home/${USER}/Downloads/play4me
+	mv /tmp/music/${title}.mp3 $saveDir
 	echo "moved"
 elif [ "$bol"="n" ];then
 	rm ${dir}/${title}.mp3
