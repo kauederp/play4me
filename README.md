@@ -1,7 +1,7 @@
-# play4me
+<h1> play4me </h1>
 Simple script to download audio file from youtube video and play with Mplayer.
 
-#### REQUIREMENTS ####
+\#\#\#\# REQUIREMENTS \#\#\#\#
 - Mplayer
 - youtube-dl
 - ffmpeg
