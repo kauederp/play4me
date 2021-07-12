@@ -1,22 +1,27 @@
-# play4me
+<h1> play4me </h1>
 Simple script to download audio file from youtube video and play with Mplayer.
 
-#### REQUIREMENTS ####
+\#\#\#\# REQUIREMENTS \#\#\#\#
 - Mplayer
 - youtube-dl
 - ffmpeg
 
-To run from anywhere just run this command at the root
+To install, run the install.sh script as root
 
-#ln -s ./play4me /usr/bin/
+\# chmod +x ./install.sh
+<br >
+\# ./install.sh
 
-and
+And to run the script run 
 
-$chmod + x ./play4me
+\$ play4me
 
-and write the name of the video.
+Press Return and write the name of the video.
 
-after Mplayer closes it will ask if you want to save the audio,
+After Mplayer closes it will ask if you want to save the audio,
 if yes 'y' it will be moved to the ~Downloads/play4me folder with the name equal to the download date and time.
 
 if it is 'n' it will be removed and the program closed.
+
+For more options run
+\$ play4me -h
