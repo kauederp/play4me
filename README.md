@@ -8,12 +8,12 @@ Simple script to download audio file from youtube video and play with Mplayer.
 
 To install, run the install.sh script as root
 
-# chmod +x ./install.sh
-# ./install.sh
+\# chmod +x ./install.sh
+\# ./install.sh
 
 And to run the script run 
 
-$ play4me
+\$ play4me
 
 Press Return and write the name of the video.
 
@@ -23,4 +23,4 @@ if yes 'y' it will be moved to the ~Downloads/play4me folder with the name equal
 if it is 'n' it will be removed and the program closed.
 
 For more options run
-$ play4me -h
+\$ play4me -h
