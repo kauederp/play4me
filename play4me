@@ -1,23 +1,24 @@
 #!/bin/sh
 
-read name
-mkdir -p /tmp/music
-mkdir -p /home/${USER}/Downloads/play4me
-dir="/tmp/music"
-title=$(date +%Y-%m-%d-%H:%M)
-youtube-dl -o "/tmp/music/${title}.mp3" --extract-audio --audio-format mp3 "ytsearch:$name"
-mplayer /tmp/music/${title}.mp3
+dir="/tmp/music";
+title=$(date +%Y-%m-%d-%H:%M);
 
-echo "do you wanna save?"
-echo "y/n"
+[ -z $# ] && read -r name || name=$1;
+mkdir -p "/tmp/music";
+mkdir -p "/home/${USER}/Downloads/play4me";
 
-read bol
+youtube-dl -o "/tmp/music/${title}.mp3" -x --audio-format mp3 "ytsearch:$name";
+mplayer -ao pulse "/tmp/music/${title}.mp3";
 
-if [ "$bol"="y" ];then
-	mv /tmp/music/${title}.mp3 /home/${USER}/Downloads/play4me
-	echo "moved"
-elif [ "$bol"="n" ];then
-	rm ${dir}/${title}.mp3
-	echo "removed"
+echo "do you wanna save?";
+echo "y/n";
+
+read -r bol
+
+if [ "$bol" = "y" ]; then
+ 		mv "/tmp/music/${title}.mp3" "/home/${USER}/Downloads/play4me";
+		echo "saved";
+	else 
+		rm "${dir}/${title}.mp3";
+		echo "removed"
 fi
-exit 0;
