@@ -1,0 +1,29 @@
+#!/bin/env sh
+
+dir="/tmp/music";
+title=$(date +%Y-%m-%d-%H:%M);
+
+
+
+yad=$(yad --title="Play4me - GUI" --text="Pesquisar Áudio:" \
+          --form --field=);
+
+name="$(echo $yad | sed -E 's/[|]//')"
+mkdir -p "/tmp/music";
+mkdir -p "/home/${USER}/Downloads/play4me";
+
+youtube-dl -o "/tmp/music/${title}.mp3" -x --audio-format mp3 "ytsearch:$name";
+mplayer -ao pulse "/tmp/music/${title}.mp3";
+
+echo "do you wanna save?";
+echo "y/n";
+
+read -r bol
+
+if [ "$bol" = "y" ]; then
+ 		mv "/tmp/music/${title}.mp3" "/home/${USER}/Downloads/play4me";
+		echo "saved";
+	else 
+		rm "${dir}/${title}.mp3";
+		echo "removed"
+fi
