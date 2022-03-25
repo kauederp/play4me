@@ -3,7 +3,10 @@
 dir="/tmp/music";
 title=$(date +%Y-%m-%d-%H:%M);
 
-[ -z $# ] && read -r name || name=$1;
+yad=$(yad --title="Play4me - GUI" --text="Pesquisar Áudio:" \
+          --form --field=);
+
+name=$(echo "$yad" | sed -E 's/[|]//')
 mkdir -p "/tmp/music";
 mkdir -p "/home/${USER}/Downloads/play4me";
 
